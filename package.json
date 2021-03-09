@@ -1,0 +1,28 @@
+{
+  "name": "typography",
+  "version": "1.0.0",
+  "description": "Demo site to test typography.",
+  "main": "index.html",
+  "dependencies": {
+    "autoprefixer": "^9.8.6",
+    "browser-sync": "^2.26.14",
+    "cssnano": "^4.1.10",
+    "del": "^4.1.1",
+    "gulp": "^4.0.2",
+    "gulp-plumber": "^1.2.1",
+    "gulp-postcss": "^8.0.0",
+    "gulp-sass": "^4.1.0",
+    "gulp-sass-glob": "^1.0.9",
+    "gulp-sourcemaps": "^2.6.5"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mel-miller/typography.git"
+  },
+  "author": "mel-miller",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/mel-miller/typography/issues"
+  },
+  "homepage": "https://github.com/mel-miller/typography#readme"
+}

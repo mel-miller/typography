@@ -16,3 +16,5 @@ Thumbs.db
 # Developer Resources #
 #######################
 .vscode
+
+node_modules
