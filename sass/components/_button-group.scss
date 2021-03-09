@@ -1,0 +1,8 @@
+.#{$prefix}-button-group {
+  .#{$prefix}-button {
+    margin-left: $xs;
+    &:first-child {
+      margin-left: 0;
+    }
+  }
+}

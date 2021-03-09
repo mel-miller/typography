@@ -1,0 +1,64 @@
+@mixin button(
+  $bg-color: $scarlet,
+  $text-color: $white,
+  $border-color: $scarlet,
+  $bg-hover: $gray-dark-60,
+  $text-hover: $white,
+  $border-hover: $gray-dark-60
+) {
+  @include button-reset;
+  background-color: $bg-color;
+  color: $text-color;
+  border: 2px solid $border-color;
+  padding: rem-calc(10 16);
+  font-weight: 400;
+  text-align: center;
+
+  &:hover,
+  &:focus {
+    background-color: $bg-hover;
+    color: $text-hover;
+    border-color: $border-hover;
+  }
+
+  &:focus {
+    outline: 2px solid $focus-blue;
+    outline-offset: 2px;
+  }
+}
+
+// Default buttons.
+.#{$prefix}-button {
+  @include button();
+}
+.#{$prefix}-button--secondary {
+  @include button($gray, $white, $gray);
+}
+.#{$prefix}-button--success {
+  @include button($olive-dark-20, $white, $olive-dark-20);
+}
+.#{$prefix}-button--danger {
+  @include button($orange-dark-10, $white, $orange-dark-10);
+}
+.#{$prefix}-button--disabled {
+  @include button($gray-light-30, $gray, $gray-light-30, $gray-light-30, $gray, $gray-light-30);
+  cursor: not-allowed;
+}
+
+// outline buttons.
+.#{$prefix}-button--outline {
+  @include button($white, $scarlet, $scarlet, $scarlet, $white, $scarlet);
+}
+.#{$prefix}-button--outline-secondary {
+  @include button($white, $gray, $gray, $gray, $white, $gray);
+}
+.#{$prefix}-button--outline-success {
+  @include button($white, $olive-dark-20, $olive-dark-20, $olive-dark-20, $white, $olive-dark-20);
+}
+.#{$prefix}-button--outline-danger {
+  @include button($white, $orange-dark-10, $orange-dark-10, $orange-dark-10, $white, $orange-dark-10);
+}
+.#{$prefix}-button--outline-disabled {
+  @include button($gray-light-30, $gray, $gray, $gray-light-30, $gray, $gray);
+  cursor: not-allowed;
+}

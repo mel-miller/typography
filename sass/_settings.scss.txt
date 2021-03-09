@@ -1,0 +1,23 @@
+// Global spacing variables.
+$xxs: 4px;
+$xs: 8px;
+$sm: 16px;
+$md: 24px;
+$lg: 32px;
+$xl: 48px;
+$xxl: 64px;
+
+// Breakpoints.
+$breakpoints: (
+  sm: 0,
+  md: 640px,
+  lg: 960px,
+  xl: 1280px,
+  xxl: 1440px,
+);
+
+// Global grid gutter.
+$gutter: $md / 2;
+
+// Global max-width for containers.
+$max-width: map-get($breakpoints, xxl);

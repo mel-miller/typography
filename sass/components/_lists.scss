@@ -1,0 +1,85 @@
+// Resets.
+dl.#{$prefix}-dl,
+ol.#{$prefix}-list-ol,
+ul.#{$prefix}-list-ul {
+  @extend .#{$prefix}-ts-base;
+  line-height: rem-calc(28);
+  margin: 0;
+  padding: 0;
+}
+
+// Unordered list.
+ul.#{$prefix}-list-ul {
+  list-style: none;
+  margin-left: rem-calc(20);
+  .#{$prefix}-list-item {
+    list-style-type: none;
+    &::before {
+      color: $scarlet;
+      content: "\f111";
+      font-family: $fa;
+      font-weight: 900;
+      font-size: 5px;
+      display: inline-block;
+      vertical-align: middle;
+      padding-right: rem-calc(8);
+    }
+  }
+}
+// Second level.
+ul.#{$prefix}-list-ul ul {
+  padding-left: rem-calc(20);
+  .#{$prefix}-list-item {
+    &::before {
+      font-weight: 400;
+    }
+  }
+}
+// Third level.
+ul.#{$prefix}-list-ul ul ul {
+  padding-left: rem-calc(20);
+  .#{$prefix}-list-item {
+    &::before {
+      content: "\f45c";
+      font-weight: 900;
+      font-size: 4px;
+    }
+  }
+}
+
+// Ordered list.
+ol.#{$prefix}-list-ol {
+  padding-left: rem-calc(36);
+  list-style-type: decimal;
+}
+// Second level.
+ol.#{$prefix}-list-ol ol {
+  padding-left: rem-calc(20);
+  list-style-type: lower-alpha;
+}
+// Third level.
+ol.#{$prefix}-list-ol ol ol {
+  padding-left: rem-calc(20);
+  list-style-type: lower-roman;
+}
+
+// Definition list.
+dl.#{$prefix}-dl {
+  line-height: rem-calc(18);
+}
+dt.#{$prefix}-dt {
+  font-weight: 700;
+  margin-bottom: rem-calc(4);
+}
+dd.#{$prefix}-dd {
+  font-weight: 400;
+  margin-bottom: rem-calc(16);
+}
+
+ul.#{$prefix}-list-ul,
+ol.#{$prefix}-list-ol,
+dl.#{$prefix}-dl {
+  & + p {
+    margin-top: rem-calc(16);
+  }
+}

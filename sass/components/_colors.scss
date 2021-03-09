@@ -1,0 +1,31 @@
+.osds-colors__group-label {
+  font-size: rem-calc(22);
+  font-weight: 600;
+  margin: rem-calc(12 0 4);
+}
+
+.osds-colors__group {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.osds-colors__item {
+  margin-right: rem-calc(20);
+  margin-bottom: rem-calc(24);
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.osds-colors__swatch {
+  width: rem-calc(140);
+  height: rem-calc(80);
+  border: 1px solid $gray-light-30;
+  margin-bottom: rem-calc(4);
+}
+
+.osds-colors__code {
+  display: block;
+  font-size: rem-calc(14);
+  font-family: $code;
+}

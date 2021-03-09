@@ -1,0 +1,33 @@
+// Font variables.
+$proxima: "proximanova", "HelveticaNeue", "Helvetica", "Arial", sans-serif;
+$capita: "Capita", "Times New Roman", serif;
+$ssp: "Source Serif Pro", serif;
+$fa: "Font Awesome 5 Free";
+$code: "Source Code Pro", monospace;
+
+// Type sizes.
+$type-sizes: (
+  xs: 12px,
+  sm: 14px,
+  base: 16px,
+  md: 24px,
+  lg: 32px,
+  xl: 40px,
+  xxl: 48px,
+) !default;
+
+// Size variables.
+$ts-xs: map-get($type-sizes, xs) !default;
+$ts-sm: map-get($type-sizes, sm) !default;
+$ts-base: map-get($type-sizes, base) !default;
+$ts-md: map-get($type-sizes, md) !default;
+$ts-lg: map-get($type-sizes, lg) !default;
+$ts-xl: map-get($type-sizes, xl) !default;
+$ts-xxl: map-get($type-sizes, xxl) !default;
+
+// Size classes.
+@each $ts-name, $ts-size in $type-sizes {
+  .#{$prefix}-ts-#{$ts-name} {
+    font-size: $ts-size !important;
+  }
+}

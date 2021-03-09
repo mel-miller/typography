@@ -1,0 +1,97 @@
+// Button Reset
+@mixin button-reset {
+  border: none;
+  margin: 0;
+  padding: 0;
+  width: auto;
+  overflow: visible;
+  background: transparent;
+  line-height: normal;
+  cursor: pointer;
+  -webkit-font-smoothing: inherit;
+  -moz-osx-font-smoothing: inherit;
+  -webkit-appearance: none;
+}
+
+// Clearfix.
+// Adds clearfix based on http://bourbon.io/docs/#clearfix
+@mixin clearfix {
+  &::after {
+    clear: both;
+    content: "";
+    display: table;
+  }
+}
+
+// Link reset.
+// Strips osds basic link styles. May be used as a starting point for other link-based elements.
+@mixin link-reset {
+  color: inherit;
+  border-bottom: none;
+
+  &:hover,
+  &:focus {
+    color: inherit;
+    border-bottom-color: none;
+    background-color: inherit;
+  }
+}
+
+// Rem-calc
+// Adapted from: https://gist.github.com/kylewebdev/f36acbfd2e9257d88253
+
+$rem-base: 16px !default;
+
+@function strip-unit($num) {
+  @return $num / ($num * 0 + 1);
+}
+
+@function convert-to-rem($value, $base-value: $rem-base) {
+  $value: strip-unit($value) / strip-unit($base-value) * 1rem;
+  @if ($value == 0rem) {
+    $value: 0;
+  } // Turn 0rem into 0
+  @return $value;
+}
+
+@function rem-calc($values, $base-value: $rem-base) {
+  $max: length($values);
+  @if $max == 1 {
+    @return convert-to-rem(nth($values, 1), $base-value);
+  }
+  $remValues: ();
+  @for $i from 1 through $max {
+    $remValues: append($remValues, convert-to-rem(nth($values, $i), $base-value));
+  }
+  @return $remValues;
+}
+
+// Visually Hidden
+// Hides element visually, but leaves it available for screenreaders.
+@mixin visually-hidden($focusable: false) {
+  border: 0 !important;
+  clip: rect(0 0 0 0) !important;
+  height: 1px !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  position: absolute !important;
+  width: 1px !important;
+  // Extends the `visually-hidden` class to allow the element to be focusable
+  // when navigated to via the keyboard.
+  @if $focusable == true {
+    &:active,
+    &:focus {
+      clip: auto !important;
+      height: auto !important;
+      margin: 0 !important;
+      overflow: visible !important;
+      position: static !important;
+      width: auto !important;
+    }
+  }
+}
+
+.visually-hidden {
+  @include visually-hidden();
+}

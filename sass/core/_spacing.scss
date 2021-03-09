@@ -1,0 +1,80 @@
+// Global spacing variables.
+$xxs: 4px !default;
+$xs: 8px !default;
+$sm: 16px !default;
+$md: 24px !default;
+$lg: 32px !default;
+$xl: 40px !default;
+$xxl: 48px !default;
+
+// Spacing direction values.
+$spacing-directions: (null, -top, -right, -bottom, -left);
+
+// Spacing size values
+$spacing-sizes: (-xxs: $xxs, -xs: $xs, -sm: $sm, -md: $md, -lg: $lg, -xl: $xl, -xxl: $xxl);
+
+// Based on https://github.com/NHSLeadership/nightingale/blob/develop/utilities/_utilities.spacing.scss#L48
+@each $direction in $spacing-directions {
+  @each $size, $value in $spacing-sizes {
+    // If the direction is "null", add margin to all directions.
+    @if $direction == null {
+      .#{$prefix}-mar-all#{$size} {
+        margin: $value !important;
+      }
+
+      .#{$prefix}-pad-all#{$size} {
+        padding: $value !important;
+      }
+
+      .#{$prefix}-mar-tb#{$size} {
+        margin-bottom: $value !important;
+        margin-top: $value !important;
+      }
+
+      .#{$prefix}-mar-lr#{$size} {
+        margin-left: $value !important;
+        margin-right: $value !important;
+      }
+
+      .#{$prefix}-pad-tb#{$size} {
+        padding-bottom: $value !important;
+        padding-top: $value !important;
+      }
+
+      .#{$prefix}-pad-lr#{$size} {
+        padding-left: $value !important;
+        padding-right: $value !important;
+      }
+
+      // Otherwise create individual direction utilities.
+    } @else {
+      .#{$prefix}-mar#{$direction}#{$size} {
+        margin#{$direction}: $value !important;
+      }
+
+      .#{$prefix}-pad#{$direction}#{$size} {
+        padding#{$direction}: $value !important;
+      }
+    }
+  } // End $spacing-sizes loop
+} // End $spacing-directions loop
+
+// This loop creates classes that remove margin and padding from
+// an element.
+@each $direction in $spacing-directions {
+  @if $direction == null {
+    .#{$prefix}-mar-all-none {
+      margin: 0 !important;
+    }
+    .#{$prefix}-pad-all-none {
+      padding: 0 !important;
+    }
+  } @else {
+    .#{$prefix}-mar#{$direction}-none {
+      margin#{$direction}: 0 !important;
+    }
+    .#{$prefix}-pad#{$direction}-none {
+      padding#{$direction}: 0 !important;
+    }
+  }
+} // End remove loop

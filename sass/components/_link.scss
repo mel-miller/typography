@@ -1,0 +1,18 @@
+.#{$prefix}-link {
+  text-decoration: none;
+  color: $scarlet;
+  border-bottom: 1px solid $scarlet;
+
+  &:hover {
+    color: $black;
+    border-bottom-color: $gray-dark-30;
+    background-color: $gray-light-20;
+  }
+
+  &:focus {
+    color: $scarlet;
+    border-bottom: none;
+    outline: 2px solid $focus-blue;
+    outline-offset: 2px;
+  }
+}

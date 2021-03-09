@@ -1,0 +1,57 @@
+// Heading mixin.
+
+@mixin heading($size, $height, $weight, $color: $black, $font: $proxima) {
+  font-size: rem-calc($size);
+  line-height: rem-calc($height);
+  font-weight: $weight;
+  font-family: $font;
+  color: $color !important;
+  margin: 0;
+  margin-bottom: rem-calc(8);
+}
+
+// Heading elements.
+h1 {
+  @include heading(40, 50, 800);
+  letter-spacing: rem-calc(0.25);
+}
+h2 {
+  @include heading(30, 36, 700);
+}
+h3 {
+  @include heading(22, 28, 700);
+}
+h4 {
+  @include heading(18, 28, 700);
+}
+h5 {
+  @include heading(18, 24, 400);
+}
+h6 {
+  @include heading(16, 24, 400);
+}
+
+p,
+button,
+img,
+ol,
+ul,
+dl,
+table,
+pre {
+  & + h2,
+  & + h3,
+  & + h4,
+  & + h5,
+  & + h6 {
+    margin-top: rem-calc(16);
+  }
+}
+
+h1 + h2,
+h2 + h3,
+h3 + h4,
+h4 + h5,
+h5 + h6 {
+  margin-top: rem-calc(16);
+}

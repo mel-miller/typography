@@ -1,0 +1,65 @@
+.#{$prefix}-accordion {
+  border: 1px solid $gray-light-30;
+}
+
+.#{$prefix}-accordion > * + * {
+  border-top: 1px solid $gray-light-30;
+}
+
+.#{$prefix}-accordion__heading {
+  font-size: rem-calc(16);
+  margin-bottom: 0;
+}
+
+.#{$prefix}-accordion__trigger {
+  @include button-reset;
+  padding: rem-calc(16);
+  position: relative;
+  text-align: left;
+  width: 100%;
+
+  &:focus,
+  &:hover {
+    background: $gray-light-20;
+  }
+  &:focus {
+    outline: 2px solid $gray-dark-60;
+    outline-offset: -1px;
+  }
+}
+.#{$prefix}-accordion__trigger[aria-expanded="true"] {
+  background: $gray-light-20;
+}
+
+.#{$prefix}-accordion__title {
+  font-weight: 600;
+  display: block;
+  pointer-events: none;
+  padding-left: rem-calc(30);
+}
+
+.#{$prefix}-accordion__icon {
+  border: solid $scarlet;
+  border-width: 0 2px 2px 0;
+  height: 10px;
+  width: 10px;
+  pointer-events: none;
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%) rotate(-45deg);
+}
+
+.#{$prefix}-accordion__trigger[aria-expanded="true"] .#{$prefix}-accordion__icon {
+  transform: translateX(25%) translateY(-75%) rotate(45deg);
+}
+
+.#{$prefix}-accordion__panel {
+  margin: 0;
+  padding: rem-calc(20 24 20 46);
+}
+
+/* For Edge bug https://developer.microsoft.com/en-us/microsoft-edge/platform/issues/4806035/ */
+.#{$prefix}-accordion__panel[hidden] {
+  display: none;
+}

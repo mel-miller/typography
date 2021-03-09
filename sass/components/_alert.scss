@@ -1,0 +1,38 @@
+@mixin alert($bg-color, $icon-color, $text-color: $black) {
+  background-color: $bg-color;
+  color: $text-color;
+  margin: 0 auto;
+  border-left: 4px solid $icon-color;
+  padding: rem-calc(12 16);
+  margin-bottom: rem-calc(20);
+  display: flex;
+
+  .#{$prefix}-alert__icon {
+    margin-right: rem-calc(16);
+    line-height: 1;
+    .fas {
+      color: $icon-color;
+      font-size: rem-calc(23);
+      text-align: center;
+    }
+  }
+
+  .#{$prefix}-alert__message {
+    font-size: rem-calc(16);
+  }
+}
+
+.#{$prefix}-alert {
+  &.#{$prefix}-alert--info {
+    @include alert($blue-light-20, $violet-dark-20);
+  }
+  &.#{$prefix}-alert--success {
+    @include alert($olive-light-20, $olive-dark-20);
+  }
+  &.#{$prefix}-alert--warning {
+    @include alert($gold-light-20, $orange-dark-20);
+  }
+  &.#{$prefix}-alert--danger {
+    @include alert($orange-light-20, $scarlet);
+  }
+}

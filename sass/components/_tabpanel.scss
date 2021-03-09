@@ -1,0 +1,58 @@
+.#{$prefix}-tabpanel {
+  --#{$prefix}-tabpanel--border: #{$gray-light-30};
+  --#{$prefix}-tabpanel--color: #{$gray-dark-60};
+  --#{$prefix}-tabpanel__tab--background: #{$white};
+  --#{$prefix}-tabpanel__tab--altBackground: #{$gray-light-20};
+  --#{$prefix}-tabpanel__tab--focusBorder: #{$gray-dark-60};
+
+  &__tabs {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &__tab {
+    background-color: var(--#{$prefix}-tabpanel__tab--background);
+    border: 1px solid var(--#{$prefix}-tabpanel--border);
+    border-bottom: 0;
+    border-right: 0;
+    color: var(--#{$prefix}-tabpanel--color);
+    cursor: pointer;
+    flex: 1 1 100%;
+    font-weight: 600;
+    padding: rem-calc(16);
+
+    &:last-child {
+      border-right: 1px solid var(--#{$prefix}-tabpanel--border);
+    }
+
+    &:focus {
+      background-color: var(--#{$prefix}-tabpanel__tab--altBackground);
+      outline: 2px solid var(--#{$prefix}-tabpanel__tab--focusBorder);
+      outline-offset: -2px;
+    }
+
+    &[aria-selected="true"] {
+      background-color: var(--#{$prefix}-tabpanel__tab--altBackground);
+    }
+
+    @include breakpoint(md) {
+      flex: 1 1 auto;
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      &:hover {
+        background-color: var(--#{$prefix}-tabpanel__tab--altBackground);
+      }
+    }
+  }
+
+  &__panel {
+    border: 1px solid var(--#{$prefix}-tabpanel--border);
+    padding: rem-calc(20);
+
+    &:focus {
+      outline: 2px solid var(--#{$prefix}-tabpanel__tab--focusBorder);
+      outline-offset: -2px;
+    }
+  }
+}
